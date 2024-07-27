@@ -11,11 +11,11 @@ git clone https://github.com/QRGameStudio/util-games-builder.git
 cd util-games-builder
 npm i
 cd ..
+if [ ! -e game.html ];
+    then tsc --outFile game.js -lib dom,es6 src/main.ts
+fi
 if [ -d public ];
     then cp -r public/* .
-fi
-if [ ! -e game.html ];
-    then tsc --outFile game.js src/main.ts
 fi
 node util-games-builder/build-game.js game.html
 rm -r dist/aux
